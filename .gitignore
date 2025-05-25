@@ -1,9 +1,13 @@
 *.nc
+*.parquet
+
 artifacts/
 spark-warehouse/
 venv/
 processed_data/*
 unprocessed_data/*
+data/*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
