@@ -18,27 +18,27 @@ Code in `sedona_experiments/src/get_data.ipynb`
 
 Code in `sedona_experiments/src/sedona_queries.ipynb` :
 
-    1. Read in parquet files into a Spark DataFrame.
-    2. Create geometry column for spatial queries.
-    3. Register DataFeame as a temporal view
+1. Read in parquet files into a Spark DataFrame.
+2. Create geometry column for spatial queries.
+3. Register DataFeame as a temporal view
 
-Polaris queries:
+**Polaris queries:**
 
-**Get Variable**
+* *Get Variable*
 
-**Timeseries**
+* *Timeseries*
 
-**Heatmap**
+* *Heatmap*
 
-**Find area**
+* *Find area*
 
-**Find time**
+* *Find time*
 
 ## Run experiments
 
 Code can be found in `..`
 
-For each experiment below: time the query execution time in seconds.
+**Pseudo code:** Get the query execution time for each experiment:
 
 1. Impact of Changing Spatial and Temporal Resolution (old Figure 5)
 
@@ -67,9 +67,3 @@ For each experiment below: time the query execution time in seconds.
         for temporal resolution hour, month, year
             for filter values 205, 240, 275, 310
                 run find time queries
-
-<!-- ### FOR MERRA 2 NOT SEDONA
-Execution time	get variable	find time	heatmap
-3H, 0.5x0.625			
-day, 1 x 1.25			
-year, 2 x 2.5			 -->
