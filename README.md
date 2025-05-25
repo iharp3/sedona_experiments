@@ -4,8 +4,8 @@
 
 Code in `sedona_experiments/src/get_data.ipynb`
 
-1. Create virtual environment by running `init_venv.sh` 
-    * **NOTE:** Java is assumed to be installed.
+1. Create virtual environment by running `bash init_venv.sh` then `source venv/bin/activate` in terminal.
+    * **NOTE:** Java should be installed (check with `java -version`).
 2. Copy data for experiments into `sedona_experiments/unprocessed_data`
     * Data info:
         * 2 meter temperature
