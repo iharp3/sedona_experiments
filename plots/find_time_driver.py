@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 # Load the CSV file
-csv_file_path = "/home/uribe055/merra_2/experiments/results/" + "results_find_time.csv"
+csv_file_path = "/home/uribe055/sedona_experiments/results/all_find_time.csv"
 df = pd.read_csv(csv_file_path)
 
 x = "filter_value"

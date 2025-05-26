@@ -8,8 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 # Load the CSV file
-csv_file_path = "/home/uribe055/merra_2/experiments/results/" + "results_changing_result_size.csv"
-# csv_file_path = "/home/uribe055/merra_2/experiments/results_using_M_executors/results_changing_result_size.csv"
+csv_file_path = "/home/uribe055/sedona_experiments/results/all_result_sizes.csv"
 df = pd.read_csv(csv_file_path)
 
 # cur_plot = "s_res"
@@ -19,8 +18,7 @@ y = "total_time"
 
 # Get unique plot values
 unique_plots = ["025_H", "0.25_Y", "05_M", "1_H", "1_Y"]
-# cur_plot = [[0.25, "hour"], [0.25, "year"], [0.5, "month"], [1, "hour"], [1, "year"]]
-cur_plot = [[0, "hour"], [0, "year"], [1, "month"], [2, "hour"], [2, "year"]]
+cur_plot = [[0.25, "hour"], [0.25, "year"], [0.5, "month"], [1, "hour"], [1, "year"]]
 
 marker_size = 25
 m_fill = "none"
@@ -33,17 +31,16 @@ line_width = 4
 above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
-viridis = matplotlib.colormaps["viridis"]
+viridis = matplotlib.colormaps["gray"]       # color - viridis 
 colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
 x_label = "Spatial region (% of Greenland)"
 
 # Define style dictionary based on 'line' values
 style_dict = {
-    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "Polaris-ERA5": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "full"},
-    "Polaris-MERRA2": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "full"},
+    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -81,7 +78,7 @@ for plot_value, vals, position  in zip(unique_plots, cur_plot, legend_position):
     
     # test
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/merra_2/experiments/plot_drivers/plots/fig6_{plot_value}.png")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_result_size/size_{plot_value}.png")  # Save the plot to a file
     plt.close(fig)
 
     # final
