@@ -1,6 +1,6 @@
 '''
-Edited from github repo: https://github.com/iharp3/experiment-kit/blob/main/round2/figs/code/5cplot.py
-    Accessed: May 23, 2025
+Edited from github repo: 
+    Accessed: May 26, 2025
 '''
 
 import pandas as pd
@@ -30,14 +30,14 @@ line_width = 4
 above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
-viridis = matplotlib.colormaps["viridis"]
+viridis = matplotlib.colormaps["gray"]       # color - viridis 
 colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
 x_label = "Spatial resolution (degrees)"
 
 # Define style dictionary based on 'line' values
 style_dict = {
-    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
@@ -91,7 +91,7 @@ for plot_value, position  in zip(unique_plots, legend_position):
     
     # test
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/sedona_experiments/plots/res__{plot_value}.png")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_resolutions/res__{plot_value}.png")  # Save the plot to a file
     plt.close(fig)
 
     # final
