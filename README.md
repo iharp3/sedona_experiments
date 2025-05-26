@@ -2,7 +2,7 @@
 
 ## Set-up
 
-Code in `sedona_experiments/src/get_data.ipynb`
+Code in `sedona_experiments/src/get_data.ipynb`.
 
 1. Create virtual environment by running `bash init_venv.sh` then `source venv/bin/activate` in terminal.
     * **NOTE:** Java should be installed (check with `java -version`).
@@ -14,29 +14,22 @@ Code in `sedona_experiments/src/get_data.ipynb`
 
 3. Split data into daily `.parquet` files. Stores files in `sedona_experiments/processed_data`.
 
-## Import data to Sedona, SQL query Sedona
+## Import data to Sedona, general SQL queries in Sedona
 
-Code in `sedona_experiments/src/sedona_queries.ipynb` :
+Code in `sedona_experiments/src/sedona_queries.ipynb` and `sedona_experiments/src/read_parquet_and_query.ipynb`.
 
+**Import data**
 1. Read in parquet files into a Spark DataFrame.
 2. Create geometry column for spatial queries.
 3. Register DataFeame as a temporal view
 
-**Polaris queries:**
-
-* *Get Variable*
-
-* *Timeseries*
-
-* *Heatmap*
-
-* *Find area*
-
-* *Find time*
+**Polaris queries:** Get Variable, Timeseries, Heatmap, Find area, Find time
 
 ## Run experiments
 
-Code can be found in `..`
+Code can be found in `sedona_experiments/src/experiments.ipynb`.
+
+Results saved in `sedona_experimeriments/results/`.
 
 **Pseudo code:** Get the query execution time for each experiment:
 
