@@ -51,9 +51,10 @@ Results saved in `sedona_experimeriments/results/`.
 
 3. Heatmap Query Perfoncace
 
-        for spatial resolution 0.25, 1.0:
-            for time span 1, 2.5, 5:
-                run heatmap queries
+        for temporal resolution year:
+            for spatial resolution 0.25, 1.0:
+                for time span 1, 2.5, 5:
+                    run heatmap queries
 
 4. Find Time Query Performance
 
