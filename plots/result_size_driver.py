@@ -32,7 +32,7 @@ above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
 viridis = matplotlib.colormaps["gray"]       # color - viridis 
-colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
+colors = [viridis(i) for i in [0, 0.10, 0.20]]
 x_label = "Spatial region (% of Greenland)"
 
 # Define style dictionary based on 'line' values
@@ -40,18 +40,18 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
 y_min = df[y].min()
 y_max = df[y].max()
 
-legend_position = ["best", "best", "best", "best", "center right"]    # 'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'
+legend_position = ["best", "best", "lower right", "lower right", "best"]    # 'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'
 
 # Generate and save individual plots
 for plot_value, vals, position  in zip(unique_plots, cur_plot, legend_position):
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(7.4, 6))
     sub1 = df[df["s_res"] == vals[0]]
     subset = sub1[sub1["t_res"] == vals[1]] 
     
@@ -73,15 +73,24 @@ for plot_value, vals, position  in zip(unique_plots, cur_plot, legend_position):
     ax.set_ylabel(y_label, fontsize=font_size)
     ax.set_yscale("log")  # Set y-axis to log scale
     ax.set_ylim(y_min, y_max)
-    ax.legend(fontsize=font_size-5, loc=position)
+    if plot_value == "025_H":
+        ax.legend(fontsize=font_size-2, loc=position)
+    elif plot_value == "025_Y":
+        ax.legend(fontsize=font_size-7, bbox_to_anchor=(0.5,0.3))
+    elif plot_value == "05_M":
+        ax.legend(fontsize=font_size-7, loc=position)   #bbox_to_anchor=(0.92,0.53))
+    elif plot_value == "1_H":
+        ax.legend(fontsize=font_size-6, loc=position)
+    else:
+        ax.legend(fontsize=font_size-6, loc=position)
     ax.tick_params(axis='both', labelsize=tick_font_size)
     
     # test
     plt.tight_layout()
     plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_result_size/size_{plot_value}.png")  # Save the plot to a file
-    plt.close(fig)
+    # plt.close(fig)
 
     # final
-    # plt.tight_layout()
-    # plt.savefig(f"")  # Save the plot to a file
-    # plt.close(fig)
+    plt.tight_layout()
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_result_size/size_{plot_value}.eps")  # Save the plot to a file
+    plt.close(fig)

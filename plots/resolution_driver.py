@@ -16,17 +16,17 @@ line = "sys"
 y = "total_time"
 
 # Get unique plot values
-# cur_plot = "t_res"
-# unique_plots = ["hour", "day", "year"]
-# tick_list = [0.25, 0.5, 1.0]
-# x = "s_res"
-# x_label = "Spatial resolution (degrees)"
+cur_plot = "t_res"
+unique_plots = ["hour", "day", "year"]
+tick_list = [0.25, 0.5, 1.0]
+x = "s_res"
+x_label = "Spatial resolution (degrees)"
 
-cur_plot = "s_res"
-unique_plots = [0.5, 1.0]
-tick_list = ["hour", "day", "month", "year"]
-x = "t_res"
-x_label = "Temporal resolution"
+# cur_plot = "s_res"
+# unique_plots = [0.5, 1.0]
+# tick_list = ["hour", "day", "month", "year"]
+# x = "t_res"
+# x_label = "Temporal resolution"
 
 marker_size = 25
 m_fill = "none"
