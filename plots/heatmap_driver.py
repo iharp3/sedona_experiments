@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 
 # Load the CSV file
-csv_file_path = "/home/uribe055/sedona_experiments/results/all_heatmap.csv"
+csv_file_path = "/home/uribe055/sedona_experiments/results/all_heatmap_10yrs.csv"
 df = pd.read_csv(csv_file_path)
 
 # cur_plot = "s_res"
@@ -81,5 +81,5 @@ for plot_value, vals, positon in zip(unique_plots, cur_plot, legend_position): #
 
     # # final
     # plt.tight_layout()
-    # plt.savefig(f"/home/uribe055/experiment-kit/round2/all_final_figs/h/heatmap_{plot_value}.eps")  # Save the plot to a file
+    # plt.savefig(f"/home/uribe055/experiment-kit/round2/all_final_figs/h/heatmap_10yrs_{plot_value}.eps")  # Save the plot to a file
     # plt.close(fig)
