@@ -49,7 +49,7 @@ legend_position = ["lower center", "lower center", "lower center"]
 
 # Generate and save individual plots
 for plot_value, vals, position in zip(unique_plots, cur_plot, legend_position): # strings, [0.25, H]...
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(7.4, 6))
     sub1 = df[df["s_res"] == vals[0]]
     subset = sub1[sub1["t_res"] == vals[1]]
     
