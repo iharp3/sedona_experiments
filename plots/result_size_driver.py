@@ -6,6 +6,7 @@ Edited from github repo:
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
+import numpy as np
 
 # Load the CSV file
 csv_file_path = "/home/uribe055/sedona_experiments/results/all_result_sizes.csv"
@@ -45,7 +46,7 @@ style_dict = {
 
 # Determine global y-axis limits
 y_min = df[y].min()
-y_max = df[y].max()
+y_max = np.power(10, np.log10(df[y].max()) + 0.1)
 
 legend_position = ["best", "best", "lower right", "lower right", "best"]    # 'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'
 
