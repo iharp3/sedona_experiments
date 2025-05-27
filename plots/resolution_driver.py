@@ -102,9 +102,9 @@ for plot_value, position  in zip(unique_plots, legend_position):
     # test
     plt.tight_layout()
     plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_resolutions/res__{plot_value}.png")  # Save the plot to a file
-    plt.close(fig)
+    # plt.close(fig)
 
     # final
-    # plt.tight_layout()
-    # plt.savefig(f"")  # Save the plot to a file
-    # plt.close(fig)
+    plt.tight_layout()
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_resolutions/res__{plot_value}.eps")  # Save the plot to a file
+    plt.close(fig)
