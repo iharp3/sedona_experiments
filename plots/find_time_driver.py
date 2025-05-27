@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
+import numpy as np
 
 # Load the CSV file
 csv_file_path = "/home/uribe055/sedona_experiments/results/all_find_time.csv"
@@ -41,7 +42,7 @@ style_dict = {
 
 # Determine global y-axis limits
 y_min = df[y].min()
-y_max = df[y].max()
+y_max = np.power(10, np.log10(df[y].max()) + 0.1)
 
 # legend position ["025_H" = , "025_Y" = , "05_M" = , "1_H" = , "1_Y = "]
 legend_position = ["lower center", "lower center", "lower center"]
@@ -72,7 +73,7 @@ for plot_value, vals, position in zip(unique_plots, cur_plot, legend_position): 
     ax.set_yscale("log")  # Set y-axis to log scale
     ax.set_ylim(y_min, y_max)
 
-    ax.legend(fontsize=font_size-7, loc=position)
+    ax.legend(fontsize=font_size-8, loc=position)
     ax.tick_params(axis='both', labelsize=tick_font_size)
     
     # test
