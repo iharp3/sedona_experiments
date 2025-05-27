@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
+import numpy as np
 
 # Load the CSV file
 csv_file_path = "/home/uribe055/sedona_experiments/results/all_heatmap_10yrs.csv"
@@ -41,7 +42,7 @@ style_dict = {
 
 # Determine global y-axis limits
 y_min = df[y].min()
-y_max = df[y].max()
+y_max = np.power(10, np.log10(df[y].max()) + 0.1)
 
 # legend position ["025_H" = , "025_Y" = , "05_M" = , "1_H" = , "1_Y = "]
 # legend_position = ["center"]*5
@@ -72,7 +73,7 @@ for plot_value, vals, positon in zip(unique_plots, cur_plot, legend_position): #
     ax.set_ylabel(y_label, fontsize=font_size)
     ax.set_yscale("log")  # Set y-axis to log scale
     ax.set_ylim(y_min, y_max)
-    ax.legend(fontsize=font_size-2, loc=positon)
+    ax.legend(fontsize=font_size-4, loc=positon)
     ax.tick_params(axis='both', labelsize=tick_font_size)
     
     # test
