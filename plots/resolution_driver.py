@@ -31,7 +31,7 @@ above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
 viridis = matplotlib.colormaps["gray"]       # color - viridis 
-colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
+colors = [viridis(i) for i in [0, 0.10, 0.20]]
 x_label = "Spatial resolution (degrees)"
 
 # Define style dictionary based on 'line' values
@@ -39,7 +39,7 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
