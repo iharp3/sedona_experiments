@@ -11,20 +11,29 @@ import matplotlib
 csv_file_path = "/home/uribe055/sedona_experiments/results/all_resolutions.csv"
 df = pd.read_csv(csv_file_path)
 
-cur_plot = "t_res"
-x = "s_res"
+
 line = "sys"
 y = "total_time"
 
 # Get unique plot values
-unique_plots = ["hour", "day", "month", "year"]
+# cur_plot = "t_res"
+# unique_plots = ["hour", "day", "year"]
+# tick_list = [0.25, 0.5, 1.0]
+# x = "s_res"
+# x_label = "Spatial resolution (degrees)"
+
+cur_plot = "s_res"
+unique_plots = [0.5, 1.0]
+tick_list = ["hour", "day", "month", "year"]
+x = "t_res"
+x_label = "Temporal resolution"
 
 marker_size = 25
 m_fill = "none"
 font_size = 30
 tick_font_size = 30
 tick_size = 30
-tick_list = [0.25, 0.5, 1.0]
+
 tick_labels = tick_list
 line_width = 4
 above = "bottom"
@@ -32,7 +41,6 @@ below = "top"
 y_label = "Execution time (sec)"
 viridis = matplotlib.colormaps["gray"]       # color - viridis 
 colors = [viridis(i) for i in [0, 0.10, 0.20]]
-x_label = "Spatial resolution (degrees)"
 
 # Define style dictionary based on 'line' values
 style_dict = {
@@ -50,7 +58,7 @@ legend_position = ["best", "lower left", "best", "center"]    # 'best', 'upper r
 
 # Generate and save individual plots
 for plot_value, position  in zip(unique_plots, legend_position):
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(7.4, 6))
     subset = df[df[cur_plot] == plot_value] # df[df[t_res]]==hour
     
     for line_value in subset[line].unique():
@@ -83,7 +91,9 @@ for plot_value, position  in zip(unique_plots, legend_position):
     ax.set_ylim(y_min, y_max)
     if plot_value == "day" or plot_value == "year":
         # ax.legend(fontsize=font_size-10, loc=position, bbox_to_anchor=(0.37,0.53))   # for datasets_separate
-        ax.legend(fontsize=font_size-5, loc="best")   # for datasets_averaged
+        ax.legend(fontsize=font_size-7, loc="best")   # for datasets_averaged
+    elif plot_value == 0.5 or plot_value == 1.0:
+        ax.legend(fontsize=font_size-7, loc="best") 
     else:
         # ax.legend(fontsize=font_size-10, loc=position)     # for datasets_separate
         ax.legend(fontsize=font_size, loc=position)     # for datasets_averaged
