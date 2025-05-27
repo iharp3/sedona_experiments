@@ -68,7 +68,7 @@ for plot_value, vals, position  in zip(unique_plots, cur_plot, legend_position):
                 marker=style["marker"], markersize=style["markersize"], fillstyle=style["fill"],
                 linewidth=style["linewidth"], color=style["color"], label=f"{line_value}")
     
-    ax.set_xlabel(x_label, fontsize=font_size)
+    ax.set_xlabel(x_label, fontsize=font_size-3)
     if style["ticklist"] is not None:
         ax.set_xticks(ticks=style["ticklist"], labels=style["ticklabels"])
     ax.set_ylabel(y_label, fontsize=font_size)
