@@ -12,7 +12,7 @@ line = "sys"
 y = "total_time"
 
 # Get unique plot values
-unique_plots = ["1_Y","05_Y"]
+unique_plots = ["1_Y","025_Y"]
 cur_plot = [[1, "year"], [0.25, "year"]]
 
 
