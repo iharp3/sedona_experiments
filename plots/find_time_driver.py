@@ -28,7 +28,7 @@ above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
 viridis = matplotlib.colormaps["gray"]       # color - viridis 
-colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
+colors = [viridis(i) for i in [0, 0.10, 0.20]]
 x_label = "Filter value"
 
 # Define style dictionary based on 'line' values
@@ -36,7 +36,7 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -44,7 +44,7 @@ y_min = df[y].min()
 y_max = df[y].max()
 
 # legend position ["025_H" = , "025_Y" = , "05_M" = , "1_H" = , "1_Y = "]
-legend_position = ["best", "best", "best"]
+legend_position = ["lower center", "lower center", "lower center"]
 
 
 # Generate and save individual plots
@@ -70,21 +70,17 @@ for plot_value, vals, position in zip(unique_plots, cur_plot, legend_position): 
         ax.set_xticks(ticks=style["ticklist"], labels=style["ticklabels"])
     ax.set_ylabel(y_label, fontsize=font_size)
     ax.set_yscale("log")  # Set y-axis to log scale
-    ax.set_ylim(y_min, y_max+100)
-    if plot_value == "1_Y" or plot_value == "05_M":
-        ax.legend(fontsize=font_size, loc=position, bbox_to_anchor=(0.5, 0.35))
-    elif plot_value == "025_Y":
-        ax.legend(fontsize=font_size, loc="center", bbox_to_anchor=(0.5, 0.35))
-    else:
-        ax.legend(fontsize=font_size-5, loc=position)
+    ax.set_ylim(y_min, y_max)
+
+    ax.legend(fontsize=font_size-7, loc=position)
     ax.tick_params(axis='both', labelsize=tick_font_size)
     
     # test
     plt.tight_layout()
     plt.savefig(f"/home/uribe055/sedona_experiments/plots/find_time/find_time_{plot_value}.png")  # Save the plot to a file
-    plt.close(fig)
+    # plt.close(fig)
 
     # # final
-    # plt.tight_layout()
-    # plt.savefig(f"")  # Save the plot to a file
-    # plt.close(fig)
+    plt.tight_layout()
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/find_time/find_time_{plot_value}.eps")  # Save the plot to a file
+    plt.close(fig)
