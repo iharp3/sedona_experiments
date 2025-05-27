@@ -1,0 +1,7 @@
+sys,t_res,s_res,time_span,tr,ta,total_time,percent_area
+Sedona,year,0.25,1.0,,,4.277023792266846,100
+Sedona,year,0.25,2.5,,,0.13761115074157715,100
+Sedona,year,0.25,5.0,,,3.023730993270874,100
+Sedona,year,1.0,1.0,,,2.8736774921417236,100
+Sedona,year,1.0,2.5,,,0.11060047149658203,100
+Sedona,year,1.0,5.0,,,2.6202657222747803,100

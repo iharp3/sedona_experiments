@@ -11,11 +11,9 @@ line = "sys"
 y = "total_time"
 
 # Get unique plot values
-# unique_plots = ["025_H",  "05_M", "1_Y"]
-# cur_plot = [[0.25, "hour"], [0.5, "month"], [1, "year"]]
-unique_plots = ["1_H",  "05_M", "025_Y"]
-# cur_plot = [[1, "hour"], [0.5, "month"], [0.25, "year"]]
-cur_plot = [[2, "hour"], [1, "month"], [0, "year"]]
+unique_plots = ["1_H",  "05_M", "1_Y"]
+cur_plot = [[1, "hour"], [0.5, "month"], [1, "year"]]
+
 
 
 marker_size = 25
@@ -23,23 +21,22 @@ m_fill="none"
 font_size = 30
 tick_font_size = 30
 tick_size = 30
-tick_list = [-0.0005, 0, 0.0005, 0.05, 0.5, 1.5, 2.5, 4.5, 5.5, 6.5]
-tick_labels = [-0.0005, 0, 0.0005, 0.05, 0.5, 1.5, 2.5, 4.5, 5.5, 6.5]
+tick_list = [205, 240, 275, 310]
+tick_labels = [205, 240, 275, 310]
 line_width = 4
 above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
-viridis = matplotlib.colormaps["viridis"]
+viridis = matplotlib.colormaps["gray"]       # color - viridis 
 colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
 x_label = "Filter value"
 
 # Define style dictionary based on 'line' values
 style_dict = {
-    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "Polaris-ERA5": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "full"},
-    "Polaris-MERRA2": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "red", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "full"},
+    "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -84,7 +81,7 @@ for plot_value, vals, position in zip(unique_plots, cur_plot, legend_position): 
     
     # test
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/merra_2/experiments/plot_drivers/plots/fig8_{plot_value}.png")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/find_time/find_time_{plot_value}.png")  # Save the plot to a file
     plt.close(fig)
 
     # # final
