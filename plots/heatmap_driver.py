@@ -12,8 +12,8 @@ line = "sys"
 y = "total_time"
 
 # Get unique plot values
-unique_plots = ["1_Y","025_Y"]
-cur_plot = [[1, "year"], [0.25, "year"]]
+unique_plots = ["025_Y","1_Y"]
+cur_plot = [[0.25, "year"], [1, "year"]]
 
 
 marker_size = 25
@@ -28,7 +28,7 @@ above = "bottom"
 below = "top"
 y_label = "Execution time (sec)"
 viridis = matplotlib.colormaps["gray"]       # color - viridis 
-colors = [viridis(i) for i in [0, 0.25, 0.5, 0.75]]
+colors = [viridis(i) for i in [0, 0.10, 0.20]]
 x_label = "Time span (years)"
 
 # Define style dictionary based on 'line' values
@@ -36,7 +36,7 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[3], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -44,12 +44,13 @@ y_min = df[y].min()
 y_max = df[y].max()
 
 # legend position ["025_H" = , "025_Y" = , "05_M" = , "1_H" = , "1_Y = "]
-legend_position = ["center"]*5
+# legend_position = ["center"]*5
+legend_position=["lower right", "lower right"]
 
 
 # Generate and save individual plots
 for plot_value, vals, positon in zip(unique_plots, cur_plot, legend_position): # strings, [0.25, H]...
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(7.4, 6))
     sub1 = df[df["s_res"] == vals[0]]
     subset = sub1[sub1["t_res"] == vals[1]]
     
@@ -71,15 +72,15 @@ for plot_value, vals, positon in zip(unique_plots, cur_plot, legend_position): #
     ax.set_ylabel(y_label, fontsize=font_size)
     ax.set_yscale("log")  # Set y-axis to log scale
     ax.set_ylim(y_min, y_max)
-    ax.legend(fontsize=font_size, loc=positon)
+    ax.legend(fontsize=font_size-2, loc=positon)
     ax.tick_params(axis='both', labelsize=tick_font_size)
     
     # test
     plt.tight_layout()
     plt.savefig(f"/home/uribe055/sedona_experiments/plots/heatmap/heatmap_{plot_value}.png")  # Save the plot to a file
-    plt.close(fig)
+    # plt.close(fig)
 
     # # final
-    # plt.tight_layout()
-    # plt.savefig(f"/home/uribe055/experiment-kit/round2/all_final_figs/h/heatmap_10yrs_{plot_value}.eps")  # Save the plot to a file
-    # plt.close(fig)
+    plt.tight_layout()
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/heatmap/heatmap_{plot_value}.eps")  # Save the plot to a file
+    plt.close(fig)
