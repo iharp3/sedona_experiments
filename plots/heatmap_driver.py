@@ -37,7 +37,7 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -78,10 +78,10 @@ for plot_value, vals, positon in zip(unique_plots, cur_plot, legend_position): #
     
     # test
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/sedona_experiments/plots/heatmap/heatmap_{plot_value}.png")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/tdb_blue/heatmap_{plot_value}.png")  # Save the plot to a file
     # plt.close(fig)
 
     # # final
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/sedona_experiments/plots/heatmap/heatmap_{plot_value}.eps")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/tdb_blue/heatmap_{plot_value}.eps")  # Save the plot to a file
     plt.close(fig)

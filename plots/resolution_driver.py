@@ -18,19 +18,19 @@ line = "sys"
 y = "total_time"
 
 # Get unique plot values
-cur_plot = "t_res"
-unique_plots = ["hour", "day", "year"]
-tick_list = [0.25, 0.5, 1.0]
-tick_labels = [0.25, 0.5, 1.0]
-x = "s_res"
-x_label = "Spatial resolution (degrees)"
+# cur_plot = "t_res"
+# unique_plots = ["hour", "day", "year"]
+# tick_list = [0.25, 0.5, 1.0]
+# tick_labels = [0.25, 0.5, 1.0]
+# x = "s_res"
+# x_label = "Spatial resolution (degrees)"
 
-# cur_plot = "s_res"
-# unique_plots = [0.5, 1.0]
-# tick_list = ["hour", "day", "month", "year"]
-# tick_labels = ["hour", "day", "month", "year"]
-# x = "t_res"
-# x_label = "Temporal resolution"
+cur_plot = "s_res"
+unique_plots = [0.5, 1.0]
+tick_list = ["hour", "day", "month", "year"]
+tick_labels = ["hour", "day", "month", "year"]
+x = "t_res"
+x_label = "Temporal resolution"
 
 marker_size = 25
 m_fill = "none"
@@ -50,7 +50,7 @@ style_dict = {
     "Polaris": {"marker": "o", "markersize": marker_size, "linewidth": line_width, "color": colors[0], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Sedona": {"marker": "d", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
     "Vanilla": {"marker": "v", "markersize": marker_size, "linewidth": line_width, "color": colors[1], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
-    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": colors[2], "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
+    "TileDB": {"marker": "s", "markersize": marker_size, "linewidth": line_width, "color": "blue", "labelsize": font_size, "ticksize": tick_size, "ticklist": tick_list, "ticklabels": tick_labels, "fill": "none"},
 }
 
 # Determine global y-axis limits
@@ -97,10 +97,10 @@ for plot_value, position  in zip(unique_plots, legend_position):
     
     # test
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_resolutions/res__{plot_value}.png")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/tdb_blue/res__{plot_value}.png")  # Save the plot to a file
     # plt.close(fig)
 
     # final
     plt.tight_layout()
-    plt.savefig(f"/home/uribe055/sedona_experiments/plots/changing_resolutions/res__{plot_value}.eps")  # Save the plot to a file
+    plt.savefig(f"/home/uribe055/sedona_experiments/plots/tdb_blue/res__{plot_value}.eps")  # Save the plot to a file
     plt.close(fig)
